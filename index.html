@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="task1.css">
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const galleryItems = document.querySelectorAll(".gallery-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const close = document.querySelector(".lightbox .close");
+
+    galleryItems.forEach(item => {
+        item.addEventListener("click", () => {
+            lightbox.style.display = "flex";
+            lightboxImg.src = item.src;
+        });
+    });
+
+    close.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target !== lightboxImg) {
+            lightbox.style.display = "none";
+        }
+    });
+});
+
+</script>
+<body>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="fighter jet 1.jpg" alt="Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="sukhoi 30.jpg" alt="Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="fj3.jpg" alt="Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="fj4.jpg" alt="Image 4">
+        </div>
+        <div class="gallery-item">
+            <img src="fj5.jpg" alt="Image 5">
+        </div>
+        <div class="gallery-item">
+            <img src="fj6.jpg" alt="Image 6">
+        </div>
+        <div class="gallery-item">
+            <img src="fj7.jpg" alt="Image 7">
+        </div>
+        <div class="gallery-item">
+            <img src="fj8.jpg" alt="Image 8">
+        </div>
+        <div class="gallery-item">
+            <img src="fj9.jpg" alt="Image 9">
+        </div>
+        <div class="gallery-item">
+            <img src="fj10.jpg" alt="Image 10">
+        </div>
+       
+        <!-- Add more images as needed -->
+    </div>
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
